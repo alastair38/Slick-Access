@@ -1,0 +1,171 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+* {
+    box-sizing: border-box;
+    font-family: inherit;
+    margin:0;
+    padding: 0;
+}
+
+.slider-wrapper,
+.slider img {
+    position: relative;
+    width: 600px;
+}
+
+.slider-wrapper {
+    margin: 2em;
+}
+
+figcaption {
+    height: 55px;
+    padding: 10px;
+    background: white;
+    position: absolute;
+    width: 100%;
+    top: 0%;
+}
+
+figcaption h3 {
+    display: inline;
+    background: #414141;
+    color: #fafafa;
+    padding: 0 5px;
+    margin-right: 5px;
+}
+
+button {
+    border: none;
+    background: rgba(255,255,255, 0);
+}
+.controls {
+    width: 100%;
+    background: #fafafa;
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    z-index: 1001;
+    height: 44px;
+}
+
+.btnPlay,
+.btnPause {
+    position: absolute;
+    background: #414141;
+    color: #fafafa;
+    height: 22px;
+    width: 44px;
+    top: 11px;
+     -webkit-transition: .3s;
+            transition: .3s;
+}
+
+.btnPlay:focus,
+.btnPlay:hover,
+.btnPause:focus,
+.btnPause:hover,
+.btnReset:focus,
+.btnReset:hover {
+    background: tomato;
+    color: #fafafa;
+}
+
+.btnPlay {
+    left: 40%;
+}
+
+.btnReset {
+    position: absolute;
+    background: green;
+    color: #fafafa;
+    height: 22px;
+    width: 40px;
+    top: 11px;
+    right: 7%;
+}
+
+.btnPause {
+    right: 40%;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  background-size: 27px 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 27px;
+  height: 40px;
+  margin-top: 2px;
+}
+
+.prev {
+    position: absolute;
+    left: 0%;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23414141'%2F%3E%3C%2Fsvg%3E");
+}
+
+.prev:focus,
+.prev:hover {
+    background: #414141;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23fafafa'%2F%3E%3C%2Fsvg%3E");
+}
+
+.next {
+    position: absolute;
+    right: 0%;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23414141'%2F%3E%3C%2Fsvg%3E");
+}
+
+.next:focus,
+.next:hover {
+    background: #414141;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23fafafa'%2F%3E%3C%2Fsvg%3E");
+}
+
+ul.slick-dots {
+    position: absolute;
+    bottom: -35px;
+    width: 50%;
+    left: 25%;
+    text-align: center;
+}
+
+ul.slick-dots li {
+    display: inline-block;
+    list-type: none;
+    margin: 5px;
+}
+
+ul.slick-dots li button {
+    width: 10px;
+    height: 10px;
+    text-indent: -9999px;
+    background: #414141;
+}
+
+ul.slick-dots li button:focus,
+ul.slick-dots li.slick-active button {
+    background: tomato;
+}
+
+figure {
+display: block;
+-webkit-margin-before: 0;
+-webkit-margin-after: 0;
+-webkit-margin-start: 0;
+-webkit-margin-end: 0;
+}
+
+a:focus > div > figcaption::after {
+    content: "Keyboard users can hit 'Enter' to navigate to the linked article";
+    background: rgba(0,0,0,.75);
+    color: #fafafa;
+    display: block;
+    margin-top: 20px;
+    margin-left: -10px;
+    padding: 5px;
+}
