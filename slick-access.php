@@ -58,34 +58,28 @@ register_deactivation_hook( __FILE__, 'deactivate_slick_access' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-slick-access.php';
 
+add_action('wp_print_scripts', 'slick_access_scripts');
+add_action('wp_print_styles', 'slick_access_styles');
 
-function slick_access_load_cdn()
-{
-    // Register the slick-js cdn
-    wp_register_script( 'slick-js', 'http://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js', array('jquery'), null, false );
-
-    // Register local js
-    wp_register_script( 'slick-access', plugins_url( '/js/slick-access-public.js', __FILE__ ), array( 'jquery' ) );
-    // or
-
-    // For either a plugin or a theme, you can then enqueue the script:
-    wp_enqueue_script( 'slick-access' );
+function slick_access_scripts() {
+	if (!is_admin()) {
+		// register
+		 wp_register_script( 'slick-cdn-js', 'http://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js', array('jquery'), null, false );
+		wp_register_script('slick-local-js', plugins_url('/js/slick-access-public.js', __FILE__),array('slick-js'), true);
+		// enqueue
+	wp_enqueue_script('slick-cdn-js');
+	wp_enqueue_script('slick-local-js');
+	}
+	add_action('wp_enqueue_scripts', 'slick_access_scripts');
 }
-add_action( 'wp_enqueue_scripts', 'slick_access_load_cdn' );
-
-function slick_access_styles()
-{
-    // Register the style like this for a theme:
-    wp_register_style( 'slick-css', 'http:/cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css', array(), '20120208', 'all' );
-
-    // Register the style like this for a plugin:
-    wp_register_style( 'slick-access-css', plugins_url( '/css/slick-access-public.css', __FILE__ ), array(), '20120208', 'all' );
-    // or
-
-    // For either a plugin or a theme, you can then enqueue the style:
-    wp_enqueue_style( 'slick-access-css' );
+function slick_access_styles() {
+	// register
+	wp_register_style('slick-local', plugins_url('/css/slick-access-public.css', __FILE__));
+	wp_register_style( 'slick-main', '//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css', array(),'0.1.0',true);
+	// enqueue
+	wp_enqueue_style('slick-local');
+	wp_enqueue_style('slick-main');
 }
-add_action( 'wp_enqueue_scripts', 'slick_access_styles' );
 
 /**
  * Begins execution of the plugin.
