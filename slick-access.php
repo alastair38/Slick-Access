@@ -58,9 +58,6 @@ register_deactivation_hook( __FILE__, 'deactivate_slick_access' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-slick-access.php';
 
-add_action('wp_print_scripts', 'slick_access_scripts');
-add_action('wp_print_styles', 'slick_access_styles');
-
 function slick_access_scripts() {
 	if (!is_admin()) {
 		// register
