@@ -76,6 +76,7 @@ function slick_access_styles() {
 	// enqueue
 	wp_enqueue_style('slick-local');
 	wp_enqueue_style('slick-main');
+    add_action('wp_enqueue_scripts', 'slick_access_styles');
 }
 
 /**
